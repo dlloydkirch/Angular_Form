@@ -17,6 +17,8 @@ export class UserSettingsFormComponent implements OnInit {
     notes: 'here are example notes'
   }
 
+  singleModel ="On";
+
   userSettings : UserSettings = { ...this.originalUserSettings} ;
   constructor(private dataService: DataService) { }
 
@@ -29,11 +31,9 @@ export class UserSettingsFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log('in onSubmit: ', form.valid);
-    this.dataService.postUserSettingsForm(this.userSettings).subscribe(
-      result =>console.log('success', result),
-      error =>console.log('error: ', error)
+    console.log('in onSubmit: ', form.value);
 
-    );
+
+    
   }
 }

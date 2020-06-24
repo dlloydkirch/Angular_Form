@@ -2,7 +2,7 @@
 <div class="container">
     <p>User Settings</p>
 
-    <form #form="ngForm" >
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="form-group">
             <label for="name">Name *</label>
             <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required #nameField="ngModel"
@@ -85,7 +85,7 @@
             </div>
 
 
-        <button class="btn btn-primary">Ok</button>
+        <button class="btn btn-primary">Send</button>
     </form>
 </div>
 

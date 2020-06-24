@@ -7,13 +7,15 @@ import { UserSettings }  from '../data/user-settings';
 })
 export class UserSettingsFormComponent implements OnInit {
 
-  userSettings : UserSettings = {
+  originalUserSettings : UserSettings = {
     name: 'Dave',
     emailOffers: true,
     interfaceStyle: 'dark',
     subscriptionType: 'Annual',
     notes: 'here are example notes'
   }
+
+  userSettings : UserSettings = { ...this.originalUserSettings} ;
   constructor() { }
 
   ngOnInit(): void {

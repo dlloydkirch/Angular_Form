@@ -5,25 +5,30 @@
     <form #form="ngForm" ngNativeValidate>
         <div class="form-group">
             <label for="name">Name *</label>
-            <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required #classTest
+            <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required #nameField="ngModel"
             maxlength="5"/>
-        </div>
-        <h3>{{classTest.className}}</h3>
+            <div [hidden]="nameField.valid || nameField.untouched"
+            class="alert alert-danger">
+                You must enter a name!
+            </div>
 
+        </div>
+
+        
         <div class="form-check">
             <input class="form-check-input" type="checkbox" id="emailOffers" name="emailOffers" [(ngModel)]="userSettings.emailOffers" 
-            #propertyTest="ngModel">
+            #emailField="ngModel" required>
             <label class="form-check-label" for="emailOffers">
               Email Special Offers
             </label>
         </div>
 
-        <h3>dirty: {{propertyTest.dirty}}</h3>
-        <h3>pristine: {{propertyTest.pristine}}</h3>
-        <h3>touched: {{propertyTest.touched}}</h3>
-        <h3>untouched: {{propertyTest.untouched}}</h3>
-        <h3>valid: {{propertyTest.valid}}</h3>
-        <h3>invalid: {{propertyTest.invalid}}</h3>
+        <h3>dirty: {{emailField.dirty}}</h3>
+        <h3>pristine: {{emailField.pristine}}</h3>
+        <h3>touched: {{emailField.touched}}</h3>
+        <h3>untouched: {{emailField.untouched}}</h3>
+        <h3>valid: {{emailField.valid}}</h3>
+        <h3>invalid: {{emailField.invalid}}</h3>
 
         <div class="form-check">
             <input class="form-check-input" type="radio" name="interfaceStyle" id="lightInterface" value="light" checked [(ngModel)]="userSettings.interfaceStyle">
